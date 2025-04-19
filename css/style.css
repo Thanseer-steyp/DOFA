@@ -275,6 +275,7 @@ body {
     align-items: center;
     justify-content: flex-end;
     position: relative;
+    height: 50px;
 }
 #onboard div.bottom div.indicator-container {
     display: flex;
