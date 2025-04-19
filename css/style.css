@@ -5,7 +5,7 @@
 }
 body {
     margin: 0;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,7 +179,7 @@ body {
 
 #splash-screen {
     position: relative;
-    width: 400px;
+    width: 100%;
     height: 300px;
 }
 #splash-screen img.image1 {
@@ -226,7 +226,7 @@ body {
 #onboard {
     display: none;
     flex-direction: column;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100%;
     width: 100vw;
     /* background-color: #f5f7f9; */
     overflow: hidden;
@@ -375,7 +375,7 @@ a#submit {
 
 #otp-verification {
     background-color: #f5f7f9;
-    height: 100vh;
+    height: 100%;
     background: url(../assets/global-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -427,7 +427,7 @@ a#submit {
 
 
 #signup {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: #f5f7f9;
 }
