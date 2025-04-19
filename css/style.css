@@ -6,6 +6,9 @@
 body {
     margin: 0;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: white;
     font-family: Poppins;
     overflow: hidden;
@@ -223,8 +226,9 @@ body {
 #onboard {
     display: none;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     width: 100vw;
+    /* background-color: #f5f7f9; */
     overflow: hidden;
 }
 #onboard div.carousel-container {
@@ -371,13 +375,13 @@ a#submit {
 
 #otp-verification {
     background-color: #f5f7f9;
-    height: 100%;
+    height: 100vh;
     background: url(../assets/global-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: -20px;
     padding: 60px 20px 20px 20px;
-    width: 100vw;
+    width: 100%;
 }
 #otp-verification div.otp-container {
   padding-top: 300px;
@@ -423,8 +427,8 @@ a#submit {
 
 
 #signup {
-    height: 100%;
-    width: 100vw;
+    height: 100vh;
+    width: 100%;
     background-color: #f5f7f9;
 }
 #signup div.signup-container {
