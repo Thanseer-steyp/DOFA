@@ -240,7 +240,7 @@ body {
 #onboard div.carousel-container div.screen {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     flex-shrink: 0;
     padding: 60px 20px 20px 20px;
     background: url(../assets/global-bg.png);
@@ -381,7 +381,7 @@ a#submit {
     background-size: cover;
     background-position-y: -20px;
     padding: 60px 20px 20px 20px;
-    width: 100%;
+    width: 100vw;
 }
 #otp-verification div.otp-container {
   padding-top: 300px;
@@ -428,7 +428,7 @@ a#submit {
 
 #signup {
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-color: #f5f7f9;
 }
 #signup div.signup-container {
