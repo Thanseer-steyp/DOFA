@@ -11,9 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
     function updateCarousel() {
       carousel.style.transform = `translateX(-${currentSlide * 100}vw)`;
-      indicators.forEach((dot, index) => {
-        dot.classList.toggle("active", index === currentSlide);
-      });
     }
   
     nextButtons.forEach(button => {
