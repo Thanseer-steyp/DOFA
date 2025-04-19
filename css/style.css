@@ -273,21 +273,16 @@ body {
 #onboard div.bottom {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-#onboard div.bottom button.skip {
-    outline: none;
-    border: none;
-    background: none;
-    color: grey;
-    visibility: hidden;
-    font-weight: bold;
-    font-size: 18px;
+    justify-content: flex-end;
+    position: relative;
 }
 #onboard div.bottom div.indicator-container {
     display: flex;
     gap: 14px;
     background-color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 #onboard div.bottom div.indicator-container div.indicator {
     width: 12px;
@@ -306,6 +301,7 @@ body {
     border-radius: 50%;
     height: 50px;
     width: 50px;
+    right: 0;
 }
 #onboard div.bottom div.next img {
     display: block;
