@@ -78,3 +78,12 @@ const input = document.querySelector("#phone");
       const fullNumber = iti.getNumber();
       alert("Submitted phone number: " + fullNumber);
     });
+
+
+
+    function setRealVH() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    window.addEventListener('resize', setRealVH);
+    window.addEventListener('load', setRealVH);

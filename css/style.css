@@ -5,6 +5,7 @@
 }
 body {
     margin: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -178,9 +179,8 @@ body {
 
 #splash-screen {
     position: relative;
-    width: 100%;
+    width: 400px;
     height: 300px;
-    margin: 0 auto;
 }
 #splash-screen img.image1 {
     position: absolute;
@@ -226,7 +226,7 @@ body {
 #onboard {
     display: none;
     flex-direction: column;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     /* background-color: #f5f7f9; */
     overflow: hidden;
@@ -238,16 +238,21 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 #onboard div.carousel-container div.screen {
+    display: flex;
+    flex-direction: column;
     width: 50%;
-    padding: 60px 20px 40px 20px;
+    flex-shrink: 0;
+    padding: 60px 20px 20px 20px;
     background: url(../assets/global-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: -20px;
-    display: flex;
-    flex-direction: column;
 }
 #onboard div.top {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     padding-top: 300px;
 }
 #onboard div.top h1 {
@@ -268,9 +273,7 @@ body {
 #onboard div.bottom {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: auto;
-    position: relative;
+    justify-content: space-between;
 }
 #onboard div.bottom button.skip {
     outline: none;
@@ -303,8 +306,6 @@ body {
     border-radius: 50%;
     height: 50px;
     width: 50px;
-    position: absolute;
-    right: 0;
 }
 #onboard div.bottom div.next img {
     display: block;
