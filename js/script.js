@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButtons = document.querySelectorAll("#onboard .next");
   
     function updateCarousel() {
-      carousel.style.transform = `translateX(-${currentSlide * 100}vw)`;
+      carousel.style.transform = `translateX(-${currentSlide * 50}%)`;
     }
   
     nextButtons.forEach(button => {

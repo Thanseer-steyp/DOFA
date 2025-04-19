@@ -239,17 +239,17 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 #onboard div.carousel-container div.screen {
-    width: 100vw;
-    padding: 60px 20px 20px 20px;
+    width: 50%;
+    padding: 60px 20px 40px 20px;
     background: url(../assets/global-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: -20px;
+    display: flex;
+    flex-direction: column;
 }
 #onboard div.top {
     padding-top: 300px;
-    display: block;
-    margin-bottom: auto;
 }
 #onboard div.top h1 {
     font-size: 32px;
@@ -269,8 +269,9 @@ body {
 #onboard div.bottom {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: auto;
+    position: relative;
 }
 #onboard div.bottom button.skip {
     outline: none;
@@ -303,6 +304,8 @@ body {
     border-radius: 50%;
     height: 50px;
     width: 50px;
+    position: absolute;
+    right: 0;
 }
 #onboard div.bottom div.next img {
     display: block;
