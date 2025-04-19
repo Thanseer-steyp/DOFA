@@ -240,7 +240,7 @@ body {
 #onboard div.carousel-container div.screen {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     flex-shrink: 0;
     padding: 60px 20px 20px 20px;
     background: url(../assets/global-bg.png);
