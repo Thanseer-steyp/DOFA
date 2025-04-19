@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Reveal by Box Width</title>
+  <style>
+    .box {
+      width: 0;
+      height: 50px;
+      background-color: transparent; /* No background if you just want image */
+      overflow: hidden;              /* Hides image overflow */
+      transition: width 1s ease-in-out;
+      display: inline-block;
+    }
+
+    .box.expand {
+      width: 300px; /* Reveals more of the image */
+    }
+
+    .box img {
+      height: 100%;      /* Keep image height fixed */
+      width: auto;       /* Prevents image from squishing */
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box" id="animateBox">
+  <img src="./assets/logo-DOFa.png" alt="Logo">
+</div>
+
+<script>
+  const box = document.getElementById('animateBox');
+  setTimeout(() => {
+    box.classList.add('expand');
+  }, 1000);
+</script>
+
+</body>
+</html>

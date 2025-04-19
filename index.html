@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOFA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css"/>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <section id="splash-screen">
+        <img src="assets/LOGO-ICON.png" alt="Logo-Image" class="image1" />
+        <img src="assets/LOGO-LETTER-WOBG.png" alt="Logo-Image" class="image2" />
+    </section>
+
+    <section id="onboard">
+        <div class="carousel-container">
+            <!-- Slide 1 -->
+            <div class="screen">
+                <div class="top">
+                    <h1>Embrace the world <br> with <b>DOFA</b></h1>
+                    <p>The top-rated app where the world unite...</p>
+                </div>
+                <div class="bottom">
+                    <button class="skip">Skip</button>
+                    <div class="indicator-container">
+                        <div class="indicator" style="background-color: #0a3d74;"></div>
+                        <div class="indicator"></div>
+                    </div>
+                    <div class="next">
+                        <img src="assets/Arrow - Right 2.svg" alt="">
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Slide 2 -->
+            <div class="screen">
+                <div class="top">
+                    <h1>WELCOME TO <b>DOFA</b></h1>
+                    <p style="color: black;">Log in with your phone number</p>
+                    <form id="register-form">
+                        <input id="phone" type="tel" name="phone" required />
+                        <a href="login-verify.html" id="submit" type="submit">Sent OTP</a>
+                    </form>
+                    <h6>Dont you have an account? <a href="signup.html">Sign Up</a></h6>
+                </div>
+                <div class="bottom">
+                    <button class="skip">Skip</button>
+                    <div class="indicator-container">
+                        <div class="indicator"></div>
+                        <div class="indicator" style="background-color: #0a3d74;"></div>
+                    </div>
+                    <div class="next" style="visibility: hidden;">
+                        <img src="assets/Arrow - Right 2.svg" alt=">">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

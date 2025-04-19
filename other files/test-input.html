@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phone Input with Country Code</title>
+
+  <!-- intl-tel-input CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css"/>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .register-form-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      display: block;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #0a3d74;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #082e59;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Register</h2>
+    <form id="register-form">
+      <label for="phone">Phone Number:</label>
+      <input id="phone" type="tel" name="phone" required />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- intl-tel-input JS -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"></script>
+
+  <script>
+    const input = document.querySelector("#phone");
+
+    const iti = window.intlTelInput(input, {
+      initialCountry: "auto",
+      geoIpLookup: function (success, failure) {
+        fetch("https://ipinfo.io/json?token=YOUR_TOKEN_HERE")
+          .then(resp => resp.json())
+          .then(resp => success(resp.country))
+          .catch(() => success("us"));
+      },
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
+    });
+
+    // Optional: handle the form submit to get full number
+    document.getElementById("register-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const fullNumber = iti.getNumber();
+      alert("Submitted phone number: " + fullNumber);
+    });
+  </script>
+</body>
+</html>

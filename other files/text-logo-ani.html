@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DOFA Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #121212;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      font-size: 48px;
+      color: white;
+      gap: 20px;
+      position: relative;
+    }
+
+    .letter {
+      display: inline-block;
+      opacity: 1;
+      transition: all 0.6s ease-in-out;
+    }
+
+    .hidden {
+      opacity: 0;
+    }
+
+    #letter-o {
+      transform: translateY(-120px);
+    }
+
+    /* Animation classes */
+    .fall {
+      animation: fallDown 0.8s ease-out forwards;
+    }
+
+
+
+    @keyframes fallDown {
+      0% {
+        transform: translateY(-120px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span id="letter-d" class="letter hidden">D</span>
+    <span id="letter-o" class="letter">O</span>
+    <span id="letter-f" class="letter hidden">F</span>
+    <span id="letter-a" class="letter hidden">A</span>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const d = document.getElementById('letter-d');
+      const o = document.getElementById('letter-o');
+      const f = document.getElementById('letter-f');
+      const a = document.getElementById('letter-a');
+
+      // Step 1: O falls down
+      o.classList.add('fall');
+
+      // Step 2: Slightly shift O left by reducing its margin
+      setTimeout(() => {
+        o.classList.add('shift-left');
+      }, 900);
+
+      // Step 3: Reveal D
+      setTimeout(() => {
+        d.classList.remove('hidden');
+      }, 1400);
+
+      // Step 4: Reveal F
+      setTimeout(() => {
+        f.classList.remove('hidden');
+      }, 1700);
+
+      // Step 5: Reveal A
+      setTimeout(() => {
+        a.classList.remove('hidden');
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

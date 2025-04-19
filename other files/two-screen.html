@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DOFA Onboarding</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    #splash-screen {
+      position: relative;
+      width: 400px;
+      height: 300px;
+    }
+
+    #splash-screen img.image1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: auto;
+      transform: translate(-50%, -200%);
+      animation: fallToCenter 1s ease-out forwards;
+    }
+
+    @keyframes fallToCenter {
+      0% {
+        transform: translate(-50%, -200%);
+      }
+      100% {
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    #splash-screen img.image2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: auto;
+      opacity: 1;
+      clip-path: inset(0 100% 0 0);
+      animation: clipReveal 1.5s 1s ease-out forwards, fadeIn 1.5s 1s ease-out forwards;
+    }
+
+    @keyframes clipReveal {
+      0% {
+        clip-path: inset(0 100% 0 0);
+      }
+      100% {
+        clip-path: inset(0 0 0 0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    #onboard {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .carousel-container {
+      display: flex;
+      width: 200%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .screen {
+      width: 100vw;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 20px 20px 20px;
+      background: #f5f7f9;
+    }
+
+    .top h1 {
+      font-size: 32px;
+      font-weight: bold;
+      color: black;
+      line-height: 1.4;
+    }
+
+    .top h1 b {
+      color: #0a3d74;
+      font-size: 36px;
+    }
+
+    .top p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .skip {
+      background: none;
+      border: none;
+      font-weight: bold;
+      color: grey;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .indicator-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border: 2px solid #0a3d74;
+      background-color: white;
+      border-radius: 50%;
+    }
+
+    .indicator.active {
+      background-color: #0a3d74;
+    }
+
+    .next {
+      background-color: #142670;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+
+    .next img {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <section id="splash-screen">
+    <img src="assets/LOGO-ICON.png" alt="Logo-Image" class="image1" />
+    <img src="assets/LOGO-LETTER-WOBG.png" alt="Logo_Image" class="image2" />
+  </section>
+
+  <!-- Onboarding Screens -->
+  <section id="onboard">
+    <div class="carousel-container">
+      <!-- Screen 1 -->
+      <div class="screen">
+        <div class="top">
+          <h1>Embrace the world <br> with <b>DOFA</b></h1>
+          <p>The top-rated app where the world unite...</p>
+        </div>
+        <div class="bottom">
+          <button class="skip">Skip</button>
+          <div class="indicator-container">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+          </div>
+          <div class="next">
+            <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="Next">
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 2 -->
+      <div class="screen">
+        <div class="top">
+          <h1>Connect Globally <br> Live Freely</h1>
+          <p>Where every culture finds a voice.</p>
+        </div>
+        <div class="bottom">
+          <button class="skip">Get Started</button>
+          <div class="indicator-container">
+            <div class="indicator"></div>
+            <div class="indicator active"></div>
+          </div>
+          <div class="next">
+            <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="Next">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(function () {
+        document.getElementById("splash-screen").style.display = "none";
+        document.getElementById("onboard").style.display = "flex";
+      }, 4000);
+
+      let currentSlide = 0;
+      const slides = document.querySelectorAll("#onboard .screen");
+      const indicators = document.querySelectorAll("#onboard .indicator");
+      const carousel = document.querySelector(".carousel-container");
+      const nextButtons = document.querySelectorAll("#onboard .next");
+
+      function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentSlide * 100}vw)`;
+        indicators.forEach((dot, index) => {
+          dot.classList.toggle("active", index === currentSlide);
+        });
+      }
+
+      nextButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          currentSlide = (currentSlide + 1) % slides.length;
+          updateCarousel();
+        });
+      });
+
+      updateCarousel();
+    });
+  </script>
+</body>
+</html>

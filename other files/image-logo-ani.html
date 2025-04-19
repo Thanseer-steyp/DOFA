@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Animation: Fall and Slide</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .image-container {
+      position: relative;
+      width: 400px;
+      height: 300px;
+    }
+
+    /* Image 1 (fall to center) */
+    .image1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: auto;
+      transform: translate(-50%, -200%);
+      animation: fallToCenter 1s ease-out forwards;
+    }
+
+    @keyframes fallToCenter {
+      0% {
+        transform: translate(-50%, -200%);
+      }
+      100% {
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    /* Image 2 (slide + fade from center-left) */
+    .image2 {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      transform: translateX(-100%) translateY(-50%);
+      animation: fadeSlideIn 1.5s 1s ease-out forwards;
+    }
+
+    @keyframes fadeSlideIn {
+      0% {
+        transform: translateX(-100%) translateY(-50%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0) translateY(-50%);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <!-- Image 1: Falling into center -->
+    <img src="assets/logo-main.png" alt="Image 1" class="image1" />
+
+    <!-- Image 2: Fading and sliding in from center-left -->
+    <img src="assets/logo-DOFa.png" alt="Image 2" class="image2" />
+  </div>
+</body>
+</html>
