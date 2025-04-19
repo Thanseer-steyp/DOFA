@@ -226,9 +226,8 @@ body {
 #onboard {
     display: none;
     flex-direction: column;
-    height: 100vh;
+    /* height: 100vh; */
     width: 100vw;
-    /* background-color: #f5f7f9; */
     overflow: hidden;
 }
 #onboard div.carousel-container {
@@ -375,7 +374,7 @@ a#submit {
 
 #otp-verification {
     background-color: #f5f7f9;
-    height: 100vh;
+    /* height: 100vh; */
     background: url(../assets/global-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -427,7 +426,7 @@ a#submit {
 
 
 #signup {
-    height: 100vh;
+    /* height: 100vh; */
     width: 100vw;
     background-color: #f5f7f9;
 }
