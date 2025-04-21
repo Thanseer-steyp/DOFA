@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DOFA | Profile Setup</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/profile-setup.js"></script>
 </head>
 <body>
-    <h1>Profile Setup</h1>
+    <section id="profileSetup">
+        <div class="profileSetup-container">
+            <div class="uploadImage">
+                <img src="assets/np.png" alt="Logo-Image">
+                <input type="file" id="imageUpload" name="profile_image" accept="image/*" required style="display: none;">
+                <div class="camContainer" onclick="document.getElementById('imageUpload').click()">
+                    <img src="assets/cam.png" alt="Camera Icon">
+                </div>
+            </div>
+            <input type="text" id="full_name" placeholder="Full Name" required>
+            <input type="number" id="dob" placeholder="Date of Birth" required>
+            <input type="text" id="father's_name" placeholder="Father's name" required>
+            <input type="text" id="mother's_name" placeholder="Mother's name" required>
+            <input type="text" id="job" placeholder="Job" required>
+            <input type="text" id="country" placeholder="Country" required>
+            <input type="text" id="state" placeholder="State" required>
+            <input type="text" id="district" placeholder="District" required>
+            <input type="text" id="location" placeholder="Location" required>
+            <a href="ui.html" type="submit" id="profile-submit">Save</a>
+        </div>
+    </section>
 </body>
 </html>

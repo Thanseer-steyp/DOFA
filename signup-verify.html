@@ -20,8 +20,28 @@
               <input type="text" maxlength="1" required/>
               <input type="text" maxlength="1" required/>
             </div>
-            <a href="profile-setup.html">Submit</a>
+            <button id="otp-submit" type="button" onclick="validateOTP()">Submit</button>
           </div>
     </section>
+
+    <script>
+      function validateOTP() {
+        const otpInputs = document.querySelectorAll('.otp-inputs input');
+        let allFilled = true;
+
+        otpInputs.forEach(input => {
+          if (input.value.trim() === '') {
+            allFilled = false;
+          }
+        });
+
+        if (allFilled) {
+          window.location.href = 'profile-setup.html';
+        } else {
+          alert('Please enter all 4 digits of the verification code.');
+        }
+      }
+
+    </script>
 </body>
 </html>
