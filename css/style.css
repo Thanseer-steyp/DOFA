@@ -427,7 +427,8 @@ a#submit {
     height: 100%;
     width: 100%;
     background: url(../assets/bbg2.png);
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 #signup div.signup-container {
     padding: 40px 20px 20px 20px;
@@ -503,7 +504,8 @@ a#submit {
     height: 100%;
     width: 100%;
     background: url(../assets/pfbg.png);
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 40px 20px 20px 20px;
 }
 #profileSetup div.profileSetup-container {
