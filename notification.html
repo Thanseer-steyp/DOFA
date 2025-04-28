@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/notification.css">
+    <title>Social Connection Interface</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab" id="following-tab">Following</div>
+            <div class="tab" id="notification-tab">Notification</div>
+        </div>
+
+        <div class="content" id="following-content">
+            <!-- Content will be generated from JSON -->
+        </div>
+
+        <div class="content" id="notification-content">
+            <!-- Content will be generated from JSON -->
+        </div>
+    </div>
+
+    <div class="navigation">
+        <ul>
+            <li class="list active">
+                <a href="/Home.html">
+                    <span class="icon">
+                        <img src="./assets/home.svg" alt="">
+                    </span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="/search.html">
+                    <span class="icon">
+                        <img src="./assets/search.svg" alt="">
+                    </span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    <script src="./js/notification.js"></script>
+</body>
+</html>

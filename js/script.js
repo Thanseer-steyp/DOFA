@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
       document.getElementById("splash-screen").style.display = "none";
       document.getElementById("onboard").style.display = "flex";
-    }, 3000);
+    }, 2200);
   
     let currentSlide = 0;
     const slides = document.querySelectorAll("#onboard .screen");

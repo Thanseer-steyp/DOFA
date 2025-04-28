@@ -15,10 +15,10 @@
                 phone number
             </p>
             <div class="otp-inputs">
-              <input type="text" maxlength="1" required/>
-              <input type="text" maxlength="1" required/>
-              <input type="text" maxlength="1" required/>
-              <input type="text" maxlength="1" required/>
+              <input type="number" maxlength="1" required/>
+              <input type="number" maxlength="1" required/>
+              <input type="number" maxlength="1" required/>
+              <input type="number" maxlength="1" required/>
             </div>
             <button id="otp-submit" type="button" onclick="validateOTP()">Submit</button>
           </div>
@@ -36,7 +36,7 @@
         });
 
         if (allFilled) {
-          window.location.href = 'ui.html';
+          window.location.href = 'Home.html';
         } else {
           alert('Please enter all 4 digits of the verification code.');
         }

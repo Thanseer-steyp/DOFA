@@ -1,0 +1,56 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/Home.css">
+        <title>User Location Interface</title>
+        <style>
+           
+        </style>
+    </head>
+    <body>
+        <div class="background"></div>
+        <div class="dot-pattern"></div>
+        
+        <div class="map-container">
+            <div class="user-marker" id="userMarker">
+                <div class="pin">
+                    <div class="pin-inner">
+                        <img src="/assets/profile2.jpg" alt="User" id="userPinImage">
+                    </div>
+                </div>
+                <div class="user-name" id="userName">You</div>
+            </div>
+            <div class="navigation">
+                <ul>
+                    <li class="list active">
+                        <a href="/notification.html">
+                            <span class="icon">
+                                <img src="./assets/notification.svg" alt="">
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/search.html">
+                            <span class="icon">
+                                <img src="./assets/search.svg" alt="">
+                            </span>
+                        </a>
+                    </li>
+                    <div class="indicator"></div>
+                </ul>
+            </div>
+            
+            <div class="user-details" id="userDetails">
+                <img src="" alt="User Profile" id="userDetailPhoto" class="user-photo">
+                <div class="user-info">
+                    <h3 id="userDetailName"></h3>
+                    <p id="userDetailLocation"></p>
+                </div>
+            </div>
+        </div>
+        
+        <script src="./js/Home.js"></script>
+    </body>
+    </html>
