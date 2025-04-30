@@ -10,25 +10,37 @@
 <body>
     <section id="profileSetup">
         <div class="profileSetup-container">
+          <form id="profileForm">
             <div class="uploadImage">
-                <img src="assets/np.png" alt="Logo-Image">
-                <input type="file" id="imageUpload" name="profile_image" accept="image/*" required style="display: none;">
-                <div class="camContainer" onclick="document.getElementById('imageUpload').click()">
-                    <img src="assets/cam.png" alt="Camera Icon">
+              <label for="imageUpload" class="image-label">
+                <img id="previewImage" src="assets/np2.png" alt="Profile Image">
+                <div class="camContainer">
+                  <img src="assets/cameraIcon.svg" alt="Camera Icon">
+                </div>
+              </label>
+              <input type="file" id="imageUpload" name="profile_image" accept="image/*" autocomplete="off" style="display: none;">
+            </div>
+      
+            <input type="text" id="full_name" placeholder="Full Name" autocomplete="off">
+            <div class="dob-wrapper">
+                <div class="dob-display" id="dob-display">Select your date of birth</div>
+                <div class="dob-picker">
+                  <input type="date" id="dob" max="2025-04-28">
+                    <img src="assets/calenderIcon.svg" alt="Calendar">
                 </div>
             </div>
-            <input type="text" id="full_name" placeholder="Full Name" required>
-            <input type="date" id="dob" placeholder="Date of Birth" required max="2025-04-28">
-            <input type="text" id="father's_name" placeholder="Father's name" required>
-            <input type="text" id="mother's_name" placeholder="Mother's name" required>
-            <input type="text" id="job" placeholder="Job" required>
-            <input type="text" id="country" placeholder="Country" required>
-            <input type="text" id="state" placeholder="State" required>
-            <input type="text" id="district" placeholder="District" required>
-            <input type="text" id="location" placeholder="Location" required>
-            <!-- <a href="Home.html" type="submit" id="profile-submit">Save</a> -->
-            <input type="submit" id="profile-submit"/>
+              
+            <input type="text" id="father's_name" placeholder="Father's name" autocomplete="off">
+            <input type="text" id="mother's_name" placeholder="Mother's name" autocomplete="off">
+            <input type="text" id="job" placeholder="Job" autocomplete="off">
+            <input type="text" id="country" placeholder="Country" autocomplete="off">
+            <input type="text" id="state" placeholder="State" autocomplete="off">
+            <input type="text" id="district" placeholder="District" autocomplete="off">
+            <input type="text" id="location" placeholder="Location" autocomplete="off">
+      
+            <button type="submit" id="profile-submit">Save</button>
+          </form>
         </div>
-    </section>
+      </section>
 </body>
 </html>

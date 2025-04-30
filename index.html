@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOFA</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css"/>
-    <script src="js/script.js" defer></script>
+    <script src="js/script.js" defer></script> -->
 </head>
 <body>
     <section id="splash-screen">
@@ -38,22 +38,70 @@
             <!-- Slide 2 -->
             <div class="screen">
                 <div class="top">
-                    <h1>WELCOME TO <b>DOFA</b></h1>
-                    <p style="color: black;">Log in with your phone number</p>
-                    <form id="register-form">
-                        <input id="phone" type="tel" name="phone" required  pattern="[0-9]+" inputmode="numeric"/>
-                        <a href="login-verify.html" id="submit" type="submit">Sent OTP</a>
-                    </form>
-                    <h6>Dont you have an account? <a href="signup.html">Sign Up</a></h6>
+                  <h1>WELCOME TO <b>DOFA</b></h1>
+                  <p>Log in with your credentials</p>
+                  <form id="login-form">
+                    <input id="username" type="text" name="username" autocomplete="off" placeholder="Username" />
+                    <input id="password" type="password" name="password" autocomplete="off" placeholder="Password" />
+                    <button type="submit" id="submit">Log In</button>
+                  </form>
+                  <h6>Don't have an account? <a href="signup.html">Sign Up</a></h6>
                 </div>
+              
                 <div class="bottom">
-                    <div class="indicator-container">
-                        <div class="indicator"></div>
-                        <div class="indicator" style="background-color: #0a3d74;"></div>
-                    </div>
+                  <div class="indicator-container">
+                    <div class="indicator"></div>
+                    <div class="indicator" style="background-color: #0a3d74;"></div>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </section>
+              </div>
+              
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                setTimeout(function () {
+                document.getElementById("splash-screen").style.display = "none";
+                document.getElementById("onboard").style.display = "flex";
+                }, 2200);
+            
+                let currentSlide = 0;
+                const slides = document.querySelectorAll("#onboard .screen");
+                const carousel = document.querySelector(".carousel-container");
+                const nextButtons = document.querySelectorAll("#onboard .next");
+            
+                function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentSlide * 50}%)`;
+                }
+            
+                nextButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    updateCarousel();
+                    }
+                });
+                });
+                updateCarousel();
+
+                document.getElementById('login-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const username = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value.trim();
+
+                if (username && password) {
+                window.location.href = 'home.html';
+                } else {
+                alert('🔒 Please fill in both username and password.');
+                }
+                });
+
+                function setRealVH() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+                }
+                window.addEventListener('resize', setRealVH);
+                window.addEventListener('load', setRealVH);
+                });
+              </script> 
 </body>
 </html>

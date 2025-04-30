@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOFA | Signup</title>
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/signup.js"></script>
 </head>
 <body>
     <section id="signup">
@@ -14,14 +13,45 @@
                 <img src="assets/MAIN-LOGO.png" alt="Logo-Image">
             </div>
             <h2>Create Account</h2>
-            <input type="text" id="full_name" placeholder="Full Name" required>
-            <input type="" id="user_name" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="number" id="phone-number" placeholder="Phone Number" required>
-            <p><input type="checkbox" id="termsCheck" >Agree with<a href="terms.html" id="terms">Terms & Conditions</a></p>
-            <button id="create" onclick="validateSignup()">Create</button>
+            <form action="" id="signupForm">
+                <input autocomplete="off" type="text" id="full_name" placeholder="Full Name" >
+                <input autocomplete="off" type="" id="user_name" placeholder="Username" >
+                <input autocomplete="off" type="password" id="password" placeholder="Password" >
+                <input autocomplete="off" type="email" id="email" placeholder="Email" >
+                <input autocomplete="off" type="number" id="phone-number" placeholder="Phone Number" >
+                <p><input autocomplete="off" type="checkbox" id="termsCheck" >Agree with<a href="terms.html" id="terms">Terms & Conditions</a></p>
+                <button id="create" type="submit"><img src="assets/Arrow - Right 2.svg" alt=""></button>
+            </form>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          document.getElementById('signupForm').addEventListener('submit', validateSignup);
+        });
+      
+        function validateSignup(event) {
+          event.preventDefault(); 
+      
+          const fullName = document.getElementById('full_name').value.trim();
+          const userName = document.getElementById('user_name').value.trim();
+          const password = document.getElementById('password').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const phone = document.getElementById('phone-number').value.trim();
+          const termsChecked = document.getElementById('termsCheck').checked;
+      
+          if (fullName && userName && password && email && phone && termsChecked) {
+            window.location.href = 'signup-verify.html';
+          } else {
+            alert('⚠️ Please fill in all fields and agree to the terms.');
+          }
+        }
+      
+        function setRealVH() {
+          let vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        window.addEventListener('resize', setRealVH);
+        window.addEventListener('load', setRealVH);
+      </script>      
 </body>
 </html>

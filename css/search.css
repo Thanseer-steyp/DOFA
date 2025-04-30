@@ -6,6 +6,7 @@
 }
 body {
     background-color:#d8e3ef;
+    height: calc(var(--vh, 1vh) * 100);
 }
 .container {
     margin: 0 auto;
@@ -29,7 +30,6 @@ body {
     background-color: #ffffff91;
     padding: 15px;
     border-radius: 20px;
-    margin: 10px;
     position: relative;
     display: flex;
     align-items: center;
@@ -55,10 +55,17 @@ body {
     font-size: 20px;
     font-weight: bold;
     margin-right: 10px;
+    background: white;
+    padding: 13px 15px;
+    border-radius: 20px;
+}
+.back-button img {
+    padding-top: 4px;
 }
 .search-header {
     display: flex;
     align-items: center;
+    padding: 20px 10px 10px;
 }
 .dofa-header {
     padding: 15px;

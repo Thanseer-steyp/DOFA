@@ -9,6 +9,7 @@
 body {
     background-color:#d8e3ef;
     color: #333;
+    height: calc(var(--vh, 1vh) * 100);
 }
 .navigation {
     position: absolute;

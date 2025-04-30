@@ -268,7 +268,8 @@ body {
 }
 #onboard div.top p {
     font-size: 16px;
-    color: #747474;
+    color: black;
+    margin-bottom: 5px;
 }
 #onboard div.bottom {
     display: flex;
@@ -321,15 +322,21 @@ body {
     text-decoration: none;
 }
 
-input[type="tel"] {
+#onboard form input {
     width: 100%;
     padding: 12px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    caret-color: transparent;
+    /* caret-color: transparent; */
+    outline: none;
+    font-size: 18px;
+    letter-spacing: 0.08rem;
 }
-a#submit {
+#onboard form input#username {
+    margin: 10px 0;
+}
+#onboard form button#submit {
     margin-top: 20px;
     width: 40%;
     text-align: center;
@@ -350,12 +357,7 @@ a#submit {
     display: block;
     font-size: 18px;
 }
-#phone {
-    outline: none;
-    font-size: 18px;
-    letter-spacing: 0.08rem;
-}
-#phone:focus {
+#onboard form input:focus {
     outline: 3px solid #0a3d74;
 }
 
@@ -428,10 +430,15 @@ a#submit {
     width: 100%;
     background: url(../assets/bbg2.png);
     background-size: cover;
+    display: flex;
+    align-items: center;
     background-repeat: no-repeat;
+    justify-content: center;
 }
 #signup div.signup-container {
-    padding: 40px 20px 20px 20px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
 }
 #signup div.signup-container div.logoContainer {
     width: 60%;
@@ -450,15 +457,21 @@ a#submit {
 }
 #signup div.signup-container input {
     width: 100%;
-    padding: 14px;
+    padding: 10px 12px;
     border-radius: 6px;
     margin-bottom: 20px;
     outline: none;
+    font-size: 14px;
+    font-family: Poppins;
     border: 2px solid #0a3d74;
 }
 #signup div.signup-container input::placeholder {
     color: #bebebe;
-    font-weight: bold;
+    font-family: Poppins;
+    font-size: 14px;
+}
+#signup div.signup-container input:focus{
+    background-color: white;
 }
 #signup div.signup-container p {
     display: flex;
@@ -489,7 +502,9 @@ a#submit {
     border-radius: 5px;
     text-decoration: none;
     margin: 0 auto;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     outline: none;
     border: none;
@@ -506,10 +521,13 @@ a#submit {
     background: url(../assets/pfbg.png);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 40px 20px 20px 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 #profileSetup div.profileSetup-container {
-    
+    padding: 0 20px;
 }
 #profileSetup div.profileSetup-container div.uploadImage {
     width: 34%;
@@ -551,18 +569,24 @@ a#submit {
 
 #profileSetup div.profileSetup-container input {
     width: 100%;
-    padding: 12px;
+    padding: 10px 12px;
     border-radius: 6px;
     margin-bottom: 10px;
     outline: none;
     border: 2px solid #0a3d74;
+    font-size: 14px;
+    font-family: Poppins;
+}
+#profileSetup div.profileSetup-container input#dob {
+    margin-bottom: 0;
 }
 #profileSetup div.profileSetup-container input::placeholder {
     color: #bebebe;
-    font-weight: bold;
+    font-family: Poppins;
+    font-size: 14px;
 }
-#profileSetup div.profileSetup-container input#profile-submit {
-    width: max-content;
+#profileSetup div.profileSetup-container button#profile-submit {
+    width: 100%;
     color: white;
     background-color: #0a3d74;
     padding: 10px 20px;
@@ -571,4 +595,56 @@ a#submit {
     margin: 0 auto;
     display: block;
     text-align: center;
+    outline: none;
+    border: 2px solid #0a3d74;
+    font-size: 14px;
+    font-family: Poppins;
 }
+
+.dob-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .dob-display {
+    flex: 1;
+    padding: 10px 12px;
+    border: 2px solid #0a3d74;
+    border-radius: 6px;
+    color: #bebebe;
+    font-size: 14px;
+    font-family: Poppins;
+    background-color: #fff;
+  }
+  .dob-display.filled {
+    color: black;
+  }
+  
+  /* Hide default date input */
+  .dob-picker input[type="date"] {
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  /* Style label as calendar icon */
+  .dob-picker {
+    position: relative;
+    width: 45px;
+    border-radius: 6px;
+    height: 45px;
+    border: 2px solid #0a3d74;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dob-picker img {
+    width: 75%;
+    height: 75%;
+  }
+  
+  
