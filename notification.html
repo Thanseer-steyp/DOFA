@@ -3,47 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/notification.css">
-    <title>Social Connection Interface</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>DOFA | Notifications</title>
     <style>
         
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="tabs">
-            <div class="tab" id="following-tab">Following</div>
-            <div class="tab" id="notification-tab">Notification</div>
-        </div>
-
-        <div class="content" id="following-content">
-            <!-- Content will be generated from JSON -->
-        </div>
-
-        <div class="content" id="notification-content">
-            <!-- Content will be generated from JSON -->
-        </div>
-    </div>
-
-    <div class="navigation">
-        <ul>
-            <li class="list active">
-                <div class="homeIcon">
-                    <span class="icon">
-                        <img src="./assets/home.svg" alt="">
-                    </span>
+    <section class="mainContainer">
+        <section class="screenContainer">
+            <div class="container">
+                <div class="tabs">
+                    <div class="tab" id="following-tab">Following</div>
+                    <div class="tab" id="notification-tab">Notification</div>
                 </div>
-            </li>
-            <li class="list">
-                <div class="searchIcon">
-                    <span class="icon">
-                        <img src="./assets/search.svg" alt="">
-                    </span>
+        
+                <div class="content" id="following-content">
+                    <!-- Content will be generated from JSON -->
                 </div>
-            </li>
-            <div class="indicator"></div>
-        </ul>
-    </div>
+        
+                <div class="content" id="notification-content">
+                    <!-- Content will be generated from JSON -->
+                </div>
+            </div>
+        
+            <div class="navigation">
+                <ul>
+                    <li class="list active">
+                        <div class="homeIcon">
+                            <span class="icon">
+                                <img src="./assets/home.svg" alt="">
+                            </span>
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="searchIcon">
+                            <span class="icon">
+                                <img src="./assets/search.svg" alt="">
+                            </span>
+                        </div>
+                    </li>
+                    <div class="indicator"></div>
+                </ul>
+            </div>
+        </section>
+    </section>
     <script src="./js/notification.js"></script>
 </body>
 </html>

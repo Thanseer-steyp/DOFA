@@ -56,7 +56,7 @@ window.addEventListener('DOMContentLoaded', function () {
     if (profileImage) {
         userDetailPhoto.src = profileImage;
     } else {
-        userDetailPhoto.src = "/assets/np.png"; // Default if no image
+        userDetailPhoto.src = "/assets/np2.png"; // Default if no image
     }
 
     // Set profile image in user pin
@@ -64,7 +64,7 @@ window.addEventListener('DOMContentLoaded', function () {
     if (profileImage) {
         userPinImage.src = profileImage;
     } else {
-        userPinImage.src = "/assets/profile2.jpg"; // Default pin image
+        userPinImage.src = "/assets/np2.png"; // Default pin image
     }
 });
 

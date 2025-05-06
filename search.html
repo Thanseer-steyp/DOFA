@@ -3,31 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact List</title>
-    <link rel="stylesheet" href="./css/search.css">
+    <title>DOFA | Members</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="search-header">
-            <span class="back-button" onclick="goHome()"><img src="./assets/left.png" alt="back arrow"></span>
-            <div class="search-container">
-                <img class="search-icon" src="./assets/searchwhites.svg" alt="search icon"/>
-                <input type="text" id="searchInput" placeholder="Search name">
+    <section class="mainContainer">
+        <section class="screenContainer">
+            <div class="container">
+                <div class="search-header">
+                    <div class="topcontainer">
+                        <div class="back-btn" onclick="goHome()">
+                            <img src="assets/left.png" alt="back-btn">
+                        </div>
+                        <div class="search">
+                            <img src="assets/searchwhites.svg" alt="search-icon">
+                            <input type="text" id="searchBar" placeholder="Find your friends" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dofa-header">
+                    Dofa Members
+                </div>
+                
+                <div class="contact-list" id="contactList">
+                    <!-- Contacts will be dynamically loaded here -->
+                </div>
+                
+                <div class="not-found" id="notFound">
+                    Sorry, no profiles match your search parameters!
+                </div>
             </div>
-        </div>
-        
-        <div class="dofa-header">
-            Dofa Members
-        </div>
-        
-        <div class="contact-list" id="contactList">
-            <!-- Contacts will be dynamically loaded here -->
-        </div>
-        
-        <div class="not-found" id="notFound">
-            Sorry, no profiles match your search parameters!
-        </div>
-    </div>
+        </section>
+    </section>
 
     <script src="./js/search.js"></script>
 </body>

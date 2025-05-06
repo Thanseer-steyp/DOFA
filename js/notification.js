@@ -53,7 +53,7 @@ function generateFollowingContent() {
                 <img src="${user.avatar}" alt="${user.name}">
             </div>
             <div class="user-info">
-                <div class="user-name">${user.name}</div>
+                <div class="users-name">${user.name}</div>
                 <div class="user-house">${user.house}</div>
                 <div class="relation">
                     <span class="relation-type ${user.relation.type}">${capitalizeFirstLetter(user.relation.type)}</span>
@@ -91,7 +91,7 @@ function generateNotificationContent() {
                 <img src="${user.avatar}" alt="${user.name}">
             </div>
             <div class="user-info">
-                <div class="user-name">${user.name}</div>
+                <div class="users-name">${user.name}</div>
                 <div class="user-house">${user.house}</div>
             </div>
             ${buttonsHTML}
