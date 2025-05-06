@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOFA</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css"/>
-    <script src="js/script.js" defer></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <section class="mainContainer">
@@ -57,53 +54,81 @@
                 </div>
               </div>
     </section>
-              
-              <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                setTimeout(function () {
-                document.getElementById("splash-screen").style.display = "none";
-                document.getElementById("onboard").style.display = "flex";
-                }, 2500);
-            
-                let currentSlide = 0;
-                const slides = document.querySelectorAll("#onboard .screen");
-                const carousel = document.querySelector(".carousel-container");
-                const nextButtons = document.querySelectorAll("#onboard .next");
-            
-                function updateCarousel() {
-                carousel.style.transform = `translateX(-${currentSlide * 50}%)`;
-                }
-            
-                nextButtons.forEach(button => {
-                button.addEventListener("click", () => {
-                    if (currentSlide < slides.length - 1) {
-                    currentSlide++;
-                    updateCarousel();
-                    }
-                });
-                });
-                updateCarousel();
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Splash screen timeout
+        setTimeout(function () {
+          document.getElementById("splash-screen").style.display = "none";
+          document.getElementById("onboard").style.display = "flex";
+        }, 2500);
+    
+        // Carousel/slide logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll("#onboard .screen");
+        const carousel = document.querySelector(".carousel-container");
+        const nextButtons = document.querySelectorAll("#onboard .next");
+    
+        function updateCarousel() {
+          carousel.style.transform = `translateX(-${currentSlide * 50}%)`;
+        }
+    
+        nextButtons.forEach(button => {
+          button.addEventListener("click", () => {
+            if (currentSlide < slides.length - 1) {
+              currentSlide++;
+              updateCarousel();
+            }
+          });
+        });
+    
+        updateCarousel();
+    
+        // Login form validation using SweetAlert2
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+    
+          const username = document.getElementById('username').value.trim();
+          const password = document.getElementById('password').value.trim();
+          
+          // if (username && password) {
+          //  window.location.href = 'home.html';
+          // } else {
+          //  alert('🔒 Please fill in both username and password.');
+          //   }
+          // });
 
-                document.getElementById('login-form').addEventListener('submit', function(event) {
-                event.preventDefault();
 
-                const username = document.getElementById('username').value.trim();
-                const password = document.getElementById('password').value.trim();
-
-                if (username && password) {
-                window.location.href = 'home.html';
-                } else {
-                alert('🔒 Please fill in both username and password.');
-                }
-                });
-
-                function setRealVH() {
-                let vh = window.innerHeight * 0.01;
-                document.documentElement.style.setProperty('--vh', `${vh}px`);
-                }
-                window.addEventListener('resize', setRealVH);
-                window.addEventListener('load', setRealVH);
-                });
-              </script> 
+          if (username && password) {
+            // Swal.fire({
+            //   title: 'Success!',
+            //   text: 'Login successful.',
+            //   icon: 'success',
+            //   confirmButtonText: 'OK'
+            // }).then((result) => {
+            //   if (result.isConfirmed) {
+            //     window.location.href = 'home.html'; // Redirect to home.html
+            //   }
+            // });
+            window.location.href = 'home.html';
+          } else {
+            Swal.fire({
+              title: 'Error!',
+              text: 'Please fill in both username and password.',
+              icon: 'error',
+              confirmButtonText: 'Try Again'
+            });
+          }
+        });
+    
+        // Set --vh custom CSS variable for mobile height consistency
+        function setRealVH() {
+          let vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+    
+        window.addEventListener('resize', setRealVH);
+        window.addEventListener('load', setRealVH);
+      });
+    </script>    
 </body>
 </html>

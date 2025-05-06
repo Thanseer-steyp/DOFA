@@ -1,342 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Phone Input with Country Code</title>
+  <meta charset="UTF-8">
+  <title>SweetAlert Form Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 40px;
-      background-color: #f9f9f9;
+      padding: 50px;
     }
-
-    .phone-wrapper {
-      display: flex;
-      align-items: center;
-      border: 2px solid #0a3d74;
-      border-radius: 6px;
+    form {
+      max-width: 300px;
+      margin: auto;
+    }
+    input[type="text"], input[type="password"] {
       width: 100%;
-      max-width: 400px;
-      background-color: white;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
     }
-
-    .country-code {
-      padding: 12px;
-      background-color: #f0f0f0;
-      font-weight: bold;
-      border-right: 1px solid #ccc;
-      min-width: 60px;
-      text-align: center;
-      color: #0a3d74;
-    }
-
-    #phone-input {
-      flex: 1;
-      padding: 12px;
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3085d6;
+      color: white;
       border: none;
-      outline: none;
-      font-size: 16px;
-    }
-    .selected-country {
-        width: 40px;
-        height: 27px;
-    }
-
-    .country-select {
-      position: relative;
-      padding: 10px;
       cursor: pointer;
-      font-size: 16px;
-      color: #0a3d74;
-      display: flex;
-      align-items: center;
-      border-left: 1px solid #ccc;
     }
-
-    .country-select img {
-      width: 100%;
-      height: 100%;
-      transition: transform 0.2s;
-    }
-
-    .country-select img:hover {
-      transform: scale(1.1);
-    }
-
-    .country-dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      width: 100%;
-      max-height: 200px;
-      overflow-y: auto;
-    }
-
-    .country-dropdown div {
-      padding: 10px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-
-    .country-dropdown div:hover {
-      background-color: #f0f0f0;
-    }
-
-    .country-select.open .country-dropdown {
-      display: block;
-    }
-
   </style>
 </head>
 <body>
 
-  <h2>Phone Number Input</h2>
-  <div class="phone-wrapper">
-    <div class="country-code" id="country-code">+91</div>
-
-    <input
-      type="text"
-      id="phone-input"
-      placeholder="Enter phone number"
-      inputmode="numeric"
-      pattern="[0-9]*"
-      maxlength="15"
-    />
-
-    <div class="country-select" id="country-select">
-      <div class="selected-country">
-        <img src="https://flagcdn.com/w40/in.png" alt="India" id="selected-flag">
-      </div>
-      <div class="country-dropdown">
-        <div data-code="+91" data-flag="in">
-          <img src="https://flagcdn.com/w40/in.png" alt="India">
-        </div>
-        <div data-code="+971" data-flag="ae">
-          <img src="https://flagcdn.com/w40/ae.png" alt="UAE">
-        </div>
-        <div data-code="+44" data-flag="gb">
-          <img src="https://flagcdn.com/w40/gb.png" alt="UK">
-        </div>
-        <!-- Add more countries with flags and codes -->
-      </div>
-    </div>
-  </div>
+  <form onsubmit="return validateForm(event)">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button type="submit">Submit</button>
+  </form>
 
   <script>
-    const phoneInput = document.getElementById('phone-input');
-const countrySelect = document.getElementById('country-select');
-const selectedFlag = document.getElementById('selected-flag');
-const countryCodeText = document.getElementById('country-code'); // ✅ Corrected here
-const countryDropdown = document.querySelector('.country-dropdown');
-
-    // Toggle dropdown visibility
-    countrySelect.addEventListener('click', () => {
-      countrySelect.classList.toggle('open');
-    });
-
-    // Update country code and flag when an option is clicked
-    countryDropdown.addEventListener('click', function(event) {
-      const clickedElement = event.target.closest('div');
-      if (clickedElement && clickedElement.dataset.code) {
-        countryCodeText.textContent = clickedElement.dataset.code;
-        selectedFlag.src = `https://flagcdn.com/w40/${clickedElement.dataset.flag}.png`;
-        countrySelect.classList.remove('open'); // Close dropdown after selection
+    function validateForm(event) {
+      event.preventDefault(); // Prevent form submission
+  
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+  
+      if (username && password) {
+        Swal.fire({
+          title: 'Success!',
+          text: 'Login successful.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = 'home.html'; // Redirect to home.html
+          }
+        });
+      } else {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Please fill in both username and password.',
+          icon: 'error',
+          confirmButtonText: 'Try Again'
+        });
       }
-    });
-
-    // Allow only digits in the phone input
-    phoneInput.addEventListener('input', function() {
-      phoneInput.value = phoneInput.value.replace(/\D/g, '');
-    });
-
-    // Close dropdown if click is outside
-    window.addEventListener('click', function(event) {
-      if (!countrySelect.contains(event.target)) {
-        countrySelect.classList.remove('open');
-      }
-    });
+    }
   </script>
-
+  
 </body>
 </html>
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Phone Input with Country Code</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      background-color: #f9f9f9;
-    }
-
-    .phone-wrapper {
-      display: flex;
-      align-items: center;
-      border: 2px solid #0a3d74;
-      border-radius: 6px;
-      width: 100%;
-      max-width: 400px;
-      background-color: white;
-    }
-
-    .country-code {
-      padding: 12px;
-      background-color: #f0f0f0;
-      font-weight: bold;
-      border-right: 1px solid #ccc;
-      min-width: 60px;
-      text-align: center;
-      color: #0a3d74;
-      cursor: pointer;
-    }
-
-    #phone-input {
-      flex: 1;
-      padding: 12px;
-      border: none;
-      outline: none;
-      font-size: 16px;
-    }
-
-    .country-flags {
-      position: relative;
-      cursor: pointer;
-    }
-
-    .country-flags img {
-      width: 30px;
-      height: 20px;
-      border-radius: 3px;
-      transition: transform 0.2s;
-    }
-
-    .country-flags img:hover {
-      transform: scale(1.1);
-    }
-
-    .flag-dropdown {
-      display: none;
-      position: absolute;
-      top: 30px;
-      left: 0;
-      right: 0;
-      background-color: white;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      padding: 10px;
-      width: 100%;
-      max-height: 200px;
-      overflow-y: auto;
-    }
-
-    .flag-dropdown img {
-      width: 30px;
-      height: 20px;
-      margin-right: 10px;
-    }
-
-    .flag-dropdown div {
-      display: flex;
-      align-items: center;
-      padding: 5px;
-      cursor: pointer;
-    }
-
-    .flag-dropdown div:hover {
-      background-color: #f0f0f0;
-    }
-
-    .country-flags.open .flag-dropdown {
-      display: block;
-    }
-  </style>
-</head>
-<body>
-
-  <h2>Phone Number Input</h2>
-  <div class="phone-wrapper">
-    <div class="country-code" id="country-code">+91</div>
-
-    <input
-      type="text"
-      id="phone-input"
-      placeholder="Enter phone number"
-      inputmode="numeric"
-      pattern="[0-9]*"
-      maxlength="15"
-    />
-
-    <div class="country-flags" id="country-flags">
-      <img src="https://flagcdn.com/w40/in.png" alt="India" id="current-flag" />
-      <div class="flag-dropdown">
-        <div data-code="+91" data-flag="in">
-          <img src="https://flagcdn.com/w40/in.png" alt="India">
-          <span>+91</span>
-        </div>
-        <div data-code="+971" data-flag="ae">
-          <img src="https://flagcdn.com/w40/ae.png" alt="UAE">
-          <span>+971</span>
-        </div>
-        <div data-code="+44" data-flag="gb">
-          <img src="https://flagcdn.com/w40/gb.png" alt="UK">
-          <span>+44</span>
-        </div>
-        <!-- Add more countries with flags and codes -->
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const phoneInput = document.getElementById('phone-input');
-    const countryCode = document.getElementById('country-code');
-    const countryFlags = document.getElementById('country-flags');
-    const currentFlag = document.getElementById('current-flag');
-    const flagDropdown = document.querySelector('.flag-dropdown');
-
-    // Toggle dropdown visibility
-    countryFlags.addEventListener('click', () => {
-      countryFlags.classList.toggle('open');
-    });
-
-    // Update country code and flag when an option is clicked
-    flagDropdown.addEventListener('click', function(event) {
-      const clickedElement = event.target.closest('div');
-      if (clickedElement && clickedElement.dataset.code) {
-        countryCode.textContent = clickedElement.dataset.code;
-        currentFlag.src = `https://flagcdn.com/w40/${clickedElement.dataset.flag}.png`;
-        countryFlags.classList.remove('open'); // Close dropdown after selection
-      }
-    });
-
-    // Allow only digits in the phone input
-    phoneInput.addEventListener('input', function() {
-      phoneInput.value = phoneInput.value.replace(/\D/g, '');
-    });
-
-    // Close dropdown if click is outside
-    window.addEventListener('click', function(event) {
-      if (!countryFlags.contains(event.target)) {
-        countryFlags.classList.remove('open');
-      }
-    });
-  </script>
-
-</body>
-</html> -->

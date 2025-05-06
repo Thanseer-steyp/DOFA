@@ -1,124 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOFA | Signup</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
     <section class="mainContainer">
       <section id="signup">
         <div class="signup-container">
-            <div class="logoContainer">
-                <img src="assets/MAIN-LOGO.png" alt="Logo-Image">
-            </div>
-            <h2>Create Account</h2>
-            <form action="" id="signupForm">
-                <input autocomplete="off" type="text" id="full_name" placeholder="Full Name" >
-                <input autocomplete="off" type="" id="user_name" placeholder="Username" >
-                <input autocomplete="off" type="password" id="password" placeholder="Password" >
-                <input autocomplete="off" type="email" id="email" placeholder="Email" >
-                <div class="phone-wrapper">
-                  <div class="country-code" id="country-code">+91</div>
-              
-                  <input
-                    type="text"
-                    id="phone-input"
-                    placeholder="Enter phone number"
-                    inputmode="numeric"
-                    pattern="[0-9]*"
-                    maxlength="15"
-                    autocomplete="off"
+          <div class="logoContainer">
+            <img src="assets/MAIN-LOGO.png" alt="Logo-Image" />
+          </div>
+          <h2>Create Account</h2>
+          <form action="" id="signupForm">
+            <input
+              autocomplete="off"
+              type="text"
+              id="full_name"
+              placeholder="Full Name"
+            />
+            <input
+              autocomplete="off"
+              type=""
+              id="user_name"
+              placeholder="Username"
+            />
+            <input
+              autocomplete="off"
+              type="password"
+              id="password"
+              placeholder="Password"
+            />
+            <input
+              autocomplete="off"
+              type="email"
+              id="email"
+              placeholder="Email"
+            />
+            <div class="phone-wrapper">
+              <div class="country-code" id="country-code">+91</div>
+
+              <input
+                type="text"
+                id="phone-input"
+                placeholder="Enter phone number"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                maxlength="15"
+                autocomplete="off"
+              />
+
+              <div class="country-select" id="country-select">
+                <div class="selected-country">
+                  <img
+                    src="https://flagcdn.com/w40/in.png"
+                    alt="India"
+                    id="selected-flag"
                   />
-              
-                  <div class="country-select" id="country-select">
-                    <div class="selected-country">
-                      <img src="https://flagcdn.com/w40/in.png" alt="India" id="selected-flag">
-                    </div>
-                    <div class="country-dropdown">
-                      <div data-code="+91" data-flag="in">
-                        <img src="https://flagcdn.com/w40/in.png" alt="India">
-                      </div>
-                      <div data-code="+971" data-flag="ae">
-                        <img src="https://flagcdn.com/w40/ae.png" alt="UAE">
-                      </div>
-                      <div data-code="+44" data-flag="gb">
-                        <img src="https://flagcdn.com/w40/gb.png" alt="UK">
-                      </div>
-                      <!-- Add more countries with flags and codes -->
-                    </div>
-                  </div>
                 </div>
-                <p><input autocomplete="off" type="checkbox" id="termsCheck" >Agree with<a href="terms.html" id="terms">Terms & Conditions</a></p>
-                <button id="create" type="submit"><img src="assets/Arrow - Right 2.svg" alt=""></button>
-            </form>
+                <div class="country-dropdown">
+                  <div data-code="+91" data-flag="in">
+                    <img src="https://flagcdn.com/w40/in.png" alt="India" />
+                  </div>
+                  <div data-code="+971" data-flag="ae">
+                    <img src="https://flagcdn.com/w40/ae.png" alt="UAE" />
+                  </div>
+                  <div data-code="+44" data-flag="gb">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="UK" />
+                  </div>
+                  <div data-code="+50" data-flag="ar">
+                    <img src="https://flagcdn.com/w40/ar.png" alt="UK" />
+                  </div>
+                  <!-- Add more countries with flags and codes -->
+                </div>
+              </div>
+            </div>
+            <p>
+              <input autocomplete="off" type="checkbox" id="termsCheck" />Agree
+              with<a href="terms.html" id="terms">Terms & Conditions</a>
+            </p>
+            <button id="create" type="submit">
+              <img src="assets/Arrow - Right 2.svg" alt="" />
+            </button>
+          </form>
         </div>
-    </section>
+      </section>
     </section>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('signupForm').addEventListener('submit', validateSignup);
-    
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("signupForm")
+          .addEventListener("submit", validateSignup);
+
         function validateSignup(event) {
-  event.preventDefault();
+          event.preventDefault();
 
-  const fullName = document.getElementById('full_name').value.trim();
-  const userName = document.getElementById('user_name').value.trim();
-  const password = document.getElementById('password').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone-input').value.trim(); // ✅ fixed this line
-  const termsChecked = document.getElementById('termsCheck').checked;
+          const fullName = document.getElementById("full_name").value.trim();
+          const userName = document.getElementById("user_name").value.trim();
+          const password = document.getElementById("password").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const phone = document.getElementById("phone-input").value.trim(); // ✅ fixed this line
+          const termsChecked = document.getElementById("termsCheck").checked;
 
-  if (fullName && userName && password && email && phone && termsChecked) {
-    window.location.href = 'signup-verify.html';
-  } else {
-    alert('⚠️ Please fill in all fields and agree to the terms.');
-  }
-}
+          if (
+            fullName &&
+            userName &&
+            password &&
+            email &&
+            phone &&
+            termsChecked
+          ) {
+            window.location.href = "signup-verify.html"; // Redirect to home.html
+          } else {
+            Swal.fire({
+              title: "Error!",
+              text: "Please fill all fields.",
+              icon: "error",
+              confirmButtonText: "Try Again",
+            });
+          }
+        }
 
-    
-        const phoneInput = document.getElementById('phone-input');
-        const countrySelect = document.getElementById('country-select');
-        const selectedFlag = document.getElementById('selected-flag');
-        const countryCodeText = document.getElementById('country-code'); // ✅ Corrected here
-        const countryDropdown = document.querySelector('.country-dropdown');
-    
+        const phoneInput = document.getElementById("phone-input");
+        const countrySelect = document.getElementById("country-select");
+        const selectedFlag = document.getElementById("selected-flag");
+        const countryCodeText = document.getElementById("country-code"); // ✅ Corrected here
+        const countryDropdown = document.querySelector(".country-dropdown");
+
         // Toggle dropdown visibility
-        countrySelect.addEventListener('click', () => {
-          countrySelect.classList.toggle('open');
+        countrySelect.addEventListener("click", () => {
+          countrySelect.classList.toggle("open");
         });
-    
+
         // Update country code and flag when an option is clicked
-        countryDropdown.addEventListener('click', function(event) {
-          const clickedElement = event.target.closest('div');
+        countryDropdown.addEventListener("click", function (event) {
+          const clickedElement = event.target.closest("div");
           if (clickedElement && clickedElement.dataset.code) {
             countryCodeText.textContent = clickedElement.dataset.code;
             selectedFlag.src = `https://flagcdn.com/w40/${clickedElement.dataset.flag}.png`;
-            countrySelect.classList.remove('open'); // Close dropdown after selection
+            countrySelect.classList.remove("open"); // Close dropdown after selection
           }
         });
-    
+
         // Allow only digits in the phone input
-        phoneInput.addEventListener('input', function() {
-          phoneInput.value = phoneInput.value.replace(/\D/g, '');
+        phoneInput.addEventListener("input", function () {
+          phoneInput.value = phoneInput.value.replace(/\D/g, "");
         });
-    
+
         // Close dropdown if click is outside
-        window.addEventListener('click', function(event) {
+        window.addEventListener("click", function (event) {
           if (!countrySelect.contains(event.target)) {
-            countrySelect.classList.remove('open');
+            countrySelect.classList.remove("open");
           }
         });
+
+        function setRealVH() {
+          let vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty("--vh", `${vh}px`);
+        }
+        window.addEventListener("resize", setRealVH);
+        window.addEventListener("load", setRealVH);
       });
-    
-      function setRealVH() {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-      }
-      window.addEventListener('resize', setRealVH);
-      window.addEventListener('load', setRealVH);
     </script>
-         
-</body>
+  </body>
 </html>
