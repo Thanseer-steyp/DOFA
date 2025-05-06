@@ -589,11 +589,8 @@ body {
     align-items: center;
 }
 #profileSetup div.profileSetup-container {
-    padding: 0 20px;
+    padding: 30px 20px 0;
     height: inherit;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 #profileSetup div.profileSetup-container div.uploadImage {
     width: 34%;
