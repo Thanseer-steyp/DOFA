@@ -469,7 +469,6 @@ body {
 #signup div.signup-container div.phone-wrapper div.country-code {
     padding: 8px;
     background-color: #f0f0f0;
-    font-weight: bold;
     border-right: 1px solid #ccc;
     min-width: 60px;
     text-align: center;
@@ -588,12 +587,13 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 #profileSetup div.profileSetup-container {
     padding: 0 20px;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 #profileSetup div.profileSetup-container div.uploadImage {
     width: 34%;
@@ -705,6 +705,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
   }
   .dob-picker img {
     width: 75%;
